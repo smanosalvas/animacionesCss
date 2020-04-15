@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reto CSS</title>
     <style>
+
+        :root{
+            --hojas-wh: 150px;
+        }
+
         body{
             position: relative;
             height: 97vh;
@@ -24,10 +29,10 @@
             bottom: 0;
             border-style: solid;
             border-color: transparent transparent transparent transparent;
-            border-width: 180px 50px 0 50px ;
+            border-width: 120px 40px 0 40px ;
             height: 0;
-            width: 150px;
-            margin: 20px 0 50px 0;
+            width: 120px;
+            margin: 20px 0 30px 0;
             z-index: 10;
             animation: aparecer;
             animation-duration: 3s;
@@ -60,7 +65,7 @@
                 height: 0;
             }
             to{
-                height: 520px;
+                height: 340px;
             }
         }
 
@@ -69,7 +74,7 @@
             /* height: 220px; */
             height: 0;
             width: 15px;
-            bottom: 280px;
+            bottom: 200px;
             z-index: 2;
             background-color: rgb(160, 84, 84);
             transform: rotateZ(45deg);
@@ -82,7 +87,7 @@
                 height: 0;
             }
             to{
-                height: 220px;
+                height: 180px;
             }
         }
 
@@ -97,13 +102,13 @@
         .ramaD.up,
         .ramaI.up{
             background-color: rgb(160, 84, 84);
-            bottom: 380px;
+            bottom: 300px;
         }
 
         .semilla{
             display: none;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background-color: rgb(51, 206, 37);
             /* animation-name: bajarsemilla; */
@@ -125,9 +130,9 @@
             font-weight: 600;
             font-size: 18px;
             text-align: center;
-            /* width: 250px; */
+            /* width: var(--hojas-wh); */
             width: 0;
-            /* height: 250px; */
+            /* height: var(--hojas-wh); */
             height: 0;
             border-radius: 50%;
             /* border: 3px solid rgb(172, 216, 127); */
@@ -138,26 +143,30 @@
             transform-origin: 100% 50%;
         }
 
+        .hojas{
+            z-index: 6;
+        }
+
         .hojas2{
             background-color: rgb(86, 139, 32);
-            transform: translateX(150px) translateY(30px);
+            /* transform: translateX(150px) translateY(30px); */
         }
 
         .hojas3{
             background-color: rgb(86, 139, 32);
-            transform: translateX(-150px) translateY(30px);
+            /* transform: translateX(-150px) translateY(30px); */
         }
 
         .hojas4{
             background-color: rgb(127, 216, 38);
             border-radius: 0;
-            transform: translateX(-150px) translateY(180px);
+            /* transform: translateX(-150px) translateY(180px); */
         }
 
         .hojas5{
             background-color: rgb(70, 114, 26);
             right: 0;
-            transform: translateX(150px) translateY(180px);
+            /* transform: translateX(150px) translateY(180px); */
         }
 
         @keyframes aparecehojas1 {
@@ -168,10 +177,11 @@
                 background-color: transparent;
             }
             to{
-                width: 250px;
-                height: 250px;
+                width: var(--hojas-wh);
+                height: var(--hojas-wh);
                 border-width: 3px;
                 background-color:  rgb(97, 116, 13); 
+                transform:translateY(100px);
             }
         }
 
@@ -183,11 +193,11 @@
                 background-color: transparent;
             }
             to{
-                width: 250px;
-                height: 250px;
+                width: var(--hojas-wh);
+                height: var(--hojas-wh);
                 border-width: 3px;
                 background-color:  rgb(183, 204, 90);
-                transform: rotate3d(0,1,0,180deg) translateX(50px) translateY(20px);
+                transform: rotate3d(0,1,0,360deg) translateX(100px) translateY(160px);
             }
         }
 
@@ -200,11 +210,11 @@
                 transform: skew(45deg, 30deg);
             }
             to{
-                width: 250px;
-                height: 250px;
+                width: var(--hojas-wh);
+                height: var(--hojas-wh);
                 border-width: 3px;
                 background-color:  rgb(204, 240, 44);
-                transform: translateX(-200px) translateY(20px);
+                transform: translateX(-120px) translateY(160px);
             }
         }
 
@@ -217,12 +227,12 @@
                 border-radius: 0;
             }
             to{
-                width: 250px;
-                height: 250px;
+                width: var(--hojas-wh);
+                height: var(--hojas-wh);
                 border-width: 3px;
                 border-radius: 50%;
                 background-color:  rgb(233, 229, 21);
-                transform: translateX(-180px) translateY(180px);
+                transform: translateX(-150px) translateY(260px);
             }
         }
 
@@ -237,13 +247,13 @@
                 right: 0;
             }
             to{
-                width: 250px;
-                height: 250px;
+                width: var(--hojas-wh);
+                height: var(--hojas-wh);
                 border-width: 3px;
                 border-radius: 50%;
                 right: calc(50% - 250px);
                 background-color:  rgb(233, 229, 21);
-                transform: translateY(180px) translateX(50px) scale(1, 1);
+                transform: translateY(260px) translateX(0px) scale(1, 1);
             }
         }
 
@@ -284,7 +294,7 @@
                 transform: translateY(0);
             }
             to{
-                transform: translateY(calc(100vh - 170px));
+                transform: translateY(calc(100vh - 160px));
                 display: none;
             }
         }
@@ -366,6 +376,7 @@
             $hojas2.style.animationName = 'aparecehojas2';
             $hojas2.style.animationDuration = '3s';
             $hojas2.style.animationDelay = '.3s';
+            $hojas2.style.animationIterationCount = '5';
         });
 
         $rama3.addEventListener('animationend', (event)=>{
