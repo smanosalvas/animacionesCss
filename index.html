@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto CSS</title>
+    <style>
+        body{
+            position: relative;
+            height: 97vh;
+        }
+
+        .container{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .maceta{
+            position: absolute;
+            bottom: 0;
+            border-style: solid;
+            border-color: transparent transparent transparent transparent;
+            border-width: 180px 50px 0 50px ;
+            height: 0;
+            width: 150px;
+            margin: 20px 0 50px 0;
+            z-index: 10;
+            animation: aparecer;
+            animation-duration: 3s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes aparecer {
+            from{
+                border-top-color: transparent;
+            }
+            to{
+                border-top-color: brown;
+            }
+        }
+
+        .tronco{
+            position: absolute;
+            /* height: 520px; */
+            height: 0px;
+            width: 15px;
+            bottom: 80px;
+            z-index: 1;
+            background-color: rgb(160, 84, 84);
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes aparecerTronco {
+            from{
+                height: 0;
+            }
+            to{
+                height: 520px;
+            }
+        }
+
+        .ramaD, .ramaI{
+            position: absolute;
+            /* height: 220px; */
+            height: 0;
+            width: 15px;
+            bottom: 280px;
+            z-index: 2;
+            background-color: rgb(160, 84, 84);
+            transform: rotateZ(45deg);
+            transform-origin: center bottom;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes aparecerRama {
+            from{
+                height: 0;
+            }
+            to{
+                height: 220px;
+            }
+        }
+
+        .ramaD{
+            transform: rotateZ(45deg);
+        }
+
+        .ramaI{
+            transform: rotateZ(-45deg);
+        }
+
+        .ramaD.up,
+        .ramaI.up{
+            background-color: rgb(160, 84, 84);
+            bottom: 380px;
+        }
+
+        .semilla{
+            display: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgb(51, 206, 37);
+            /* animation-name: bajarsemilla; */
+            /* animation-duration: 6s; */
+            animation-fill-mode: forwards;
+        }
+
+
+        .hojas,
+        .hojas2,
+        .hojas3,
+        .hojas4,
+        .hojas5{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            /* width: 250px; */
+            width: 0;
+            /* height: 250px; */
+            height: 0;
+            border-radius: 50%;
+            /* border: 3px solid rgb(172, 216, 127); */
+            border: 0px solid rgb(172, 216, 127);
+            background-color:transparent;
+            z-index: 5;
+            animation-fill-mode: forwards;
+            transform-origin: 100% 50%;
+        }
+
+        .hojas2{
+            background-color: rgb(86, 139, 32);
+            transform: translateX(150px) translateY(30px);
+        }
+
+        .hojas3{
+            background-color: rgb(86, 139, 32);
+            transform: translateX(-150px) translateY(30px);
+        }
+
+        .hojas4{
+            background-color: rgb(127, 216, 38);
+            border-radius: 0;
+            transform: translateX(-150px) translateY(180px);
+        }
+
+        .hojas5{
+            background-color: rgb(70, 114, 26);
+            right: 0;
+            transform: translateX(150px) translateY(180px);
+        }
+
+        @keyframes aparecehojas1 {
+            from{
+                width: 0;
+                height: 0;
+                border-width: 0;
+                background-color: transparent;
+            }
+            to{
+                width: 250px;
+                height: 250px;
+                border-width: 3px;
+                background-color:  rgb(97, 116, 13); 
+            }
+        }
+
+        @keyframes aparecehojas2 {
+            from{
+                width: 0;
+                height: 0;
+                border-width: 0;
+                background-color: transparent;
+            }
+            to{
+                width: 250px;
+                height: 250px;
+                border-width: 3px;
+                background-color:  rgb(183, 204, 90);
+                transform: rotate3d(0,1,0,180deg) translateX(50px) translateY(20px);
+            }
+        }
+
+        @keyframes aparecehojas3 {
+            from{
+                width: 0;
+                height: 0;
+                border-width: 0;
+                background-color: transparent;
+                transform: skew(45deg, 30deg);
+            }
+            to{
+                width: 250px;
+                height: 250px;
+                border-width: 3px;
+                background-color:  rgb(204, 240, 44);
+                transform: translateX(-200px) translateY(20px);
+            }
+        }
+
+        @keyframes aparecehojas4 {
+            from{
+                width: 0;
+                height: 0;
+                border-width: 0;
+                background-color: transparent;
+                border-radius: 0;
+            }
+            to{
+                width: 250px;
+                height: 250px;
+                border-width: 3px;
+                border-radius: 50%;
+                background-color:  rgb(233, 229, 21);
+                transform: translateX(-180px) translateY(180px);
+            }
+        }
+
+        @keyframes aparecehojas5 {
+            from{
+                width: 0;
+                height: 0;
+                border-width: 0;
+                background-color: transparent;
+                border-radius: 0;
+                transform: translateY(0);
+                right: 0;
+            }
+            to{
+                width: 250px;
+                height: 250px;
+                border-width: 3px;
+                border-radius: 50%;
+                right: calc(50% - 250px);
+                background-color:  rgb(233, 229, 21);
+                transform: translateY(180px) translateX(50px) scale(1, 1);
+            }
+        }
+
+        @keyframes loco{
+            0%{
+                background-color:rgb(97, 116, 13); 
+            }
+            25%{
+                background-color:rgb(13, 116, 52); 
+                
+            }
+            50%{
+                background-color:rgb(13, 20, 116); 
+                
+            }
+            75%{
+                background-color:rgb(116, 13, 30); 
+                
+            }
+            100%{
+                background-color:rgb(13, 116, 73); 
+                
+            }
+        }
+
+        @keyframes containerBg{
+            from{
+                background-color: transparent;
+            }
+            to{
+                background-color: rgba(37, 214, 199, 0.8);
+            }
+        }
+
+
+        @keyframes bajarsemilla {
+            from{
+                transform: translateY(0);
+            }
+            to{
+                transform: translateY(calc(100vh - 170px));
+                display: none;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="semilla" id="semilla"></div>
+        <div class="maceta" id="maceta"></div>
+        <div class="tronco" id="tronco"></div>
+        <div class="ramaD" id="rama1"></div>
+        <div class="ramaI" id="rama2"></div>
+        <div class="ramaD up" id="rama3"></div>
+        <div class="ramaI up" id="rama4"></div>
+        <div class="hojas" id="hojas1"></div>
+        <div class="hojas2" id="hojas2"></div>
+        <div class="hojas3" id="hojas3"></div>
+        <div class="hojas4" id="hojas4"></div>
+        <div class="hojas5" id="hojas5"></div>
+    </div>
+
+    <script>
+        const $semilla = document.getElementById('semilla');
+        const $maceta = document.getElementById('maceta');
+        const $tronco = document.getElementById('tronco');
+        const $rama1 = document.getElementById('rama1');
+        const $rama2 = document.getElementById('rama2');
+        const $rama3 = document.getElementById('rama3');
+        const $rama4 = document.getElementById('rama4');
+        const $hojas1 = document.getElementById('hojas1');
+        const $hojas2 = document.getElementById('hojas2');
+        const $hojas3 = document.getElementById('hojas3');
+        const $hojas4 = document.getElementById('hojas4');
+        const $hojas5 = document.getElementById('hojas5');
+        const $container = document.getElementById('container');
+
+
+        $maceta.addEventListener('animationend', (event)=> {
+            if(event.animationName === 'aparecer'){
+                $semilla.style.animationName = 'bajarsemilla';
+                $semilla.style.animationDuration = '6s';
+                $semilla.style.display = 'block';
+            }
+        });
+
+        $semilla.addEventListener('animationend', (event)=>{
+            $tronco.style.animationName = 'aparecerTronco';
+            $tronco.style.animationDuration = '6s';
+            $tronco.style.animationDelay = '.3s';
+        });
+
+        $tronco.addEventListener('animationend', (event)=>{
+            $rama1.style.animationName = 'aparecerRama';
+            $rama1.style.animationDuration = '3s';
+            $rama1.style.animationDelay = '.1s';
+
+            $rama2.style.animationName = 'aparecerRama';
+            $rama2.style.animationDuration = '3s';
+            $rama2.style.animationDelay = '.2s';
+
+            $rama3.style.animationName = 'aparecerRama';
+            $rama3.style.animationDuration = '3s';
+            $rama3.style.animationDelay = '.1s';
+
+            $rama4.style.animationName = 'aparecerRama';
+            $rama4.style.animationDuration = '3s';
+            $rama4.style.animationDelay = '.2s';
+        });
+
+        $rama1.addEventListener('animationend', (event)=>{
+            $hojas1.style.animationName = 'aparecehojas1, loco';
+            $hojas1.style.animationDuration = '3s';
+            $hojas1.style.animationIterationCount = '1, 2'
+            $hojas1.style.animationDelay = '.3s';
+        });
+
+        $rama2.addEventListener('animationend', (event)=>{
+            $hojas2.style.animationName = 'aparecehojas2';
+            $hojas2.style.animationDuration = '3s';
+            $hojas2.style.animationDelay = '.3s';
+        });
+
+        $rama3.addEventListener('animationend', (event)=>{
+            $hojas3.style.animationName = 'aparecehojas3';
+            $hojas3.style.animationDuration = '3s';
+            $hojas3.style.animationDelay = '.3s';
+        });
+
+        $rama4.addEventListener('animationend', (event)=>{
+            $hojas4.style.animationName = 'aparecehojas4';
+            $hojas4.style.animationDuration = '3s';
+            $hojas4.style.animationDelay = '.3s';
+
+            $hojas5.style.animationName = 'aparecehojas5, loco';
+            $hojas5.style.animationDuration = '3s';
+            $hojas5.style.animationIterationCount = '1, 5';
+            $hojas5.style.animationDelay = '.5s';
+            
+        });
+        
+        $hojas5.addEventListener('animationstart', (event)=>{
+            $hojas3.style.animationName = 'aparecehojas3, loco';
+            $hojas3.style.animationDuration = '3s';
+            $hojas3.style.animationIterationCount = '1, 3';
+            $hojas3.style.animationDelay = '.3s';
+
+            $hojas2.style.animationName = 'aparecehojas2, loco';
+            $hojas2.style.animationDuration = '3s';
+            $hojas2.style.animationIterationCount = '1, 2';
+            $hojas2.style.animationDelay = '.5s';
+
+            $hojas4.style.animationName = 'aparecehojas4, loco';
+            $hojas4.style.animationDuration = '3s';
+            $hojas4.style.animationIterationCount = '1, 4';
+            $hojas4.style.animationDelay = '.6s';
+        });
+        
+
+        $hojas5.addEventListener('animationend', (event)=>{
+            $container.style.animationName = 'containerBg';
+            $container.style.animationDuration = '4s';
+            $container.style.animationFillMode = 'forwards';
+
+            $hojas4.innerHTML = 'RETO';
+            $hojas3.innerHTML = 'DEL CURSO';
+            $hojas1.innerHTML = 'DE <br> ANIMACIONES';
+            $hojas2.innerHTML = 'CSS';
+            $hojas5.innerHTML = 'PLATZI';
+        });
+    </script>
+</body>
+</html>
